@@ -1,0 +1,256 @@
+/* ===== Backdrop ===== */
+.prayer-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: flex-end;
+  animation: backdrop-fade-in 0.25s ease;
+}
+
+@keyframes backdrop-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ===== Modal Surface ===== */
+.prayer-modal {
+  width: 100%;
+  background-color: #FFFFFF;
+  border-radius: 32px 32px 0 0;
+  padding-bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+  animation: modal-slide-up 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  max-height: 92dvh;
+}
+
+@keyframes modal-slide-up {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+
+/* ===== Drag Handle ===== */
+.prayer-modal__handle {
+  width: 48px;
+  height: 4px;
+  border-radius: 2px;
+  background-color: #E0DADA;
+  margin: 12px auto 20px;
+  flex-shrink: 0;
+}
+
+/* ===== Header ===== */
+.prayer-modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  margin-bottom: 24px;
+  flex-shrink: 0;
+}
+
+.prayer-modal__title {
+  font-family: var(--font-sans);
+  font-size: 24px;
+  font-weight: 700;
+  color: #3E2C26;
+}
+
+.prayer-modal__close {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #F4F0EE;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.prayer-modal__close svg {
+  width: 16px;
+  height: 16px;
+  color: #8D837F;
+}
+
+/* ===== Scrollable Content ===== */
+.prayer-modal__body {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ===== Text Input Area ===== */
+.prayer-modal__input-wrapper {
+  margin: 0 24px 32px;
+  position: relative;
+  background-color: #FCF9F8;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.prayer-modal__input-wrapper:focus-within {
+  box-shadow: 0 0 0 2px rgba(210, 123, 99, 0.25);
+}
+
+.prayer-modal__title-input {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  padding: 20px 48px 16px 20px;
+  font-size: 20px;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  color: #3E2C26;
+  outline: none;
+}
+
+.prayer-modal__title-input::placeholder {
+  color: #BDB5B1;
+  font-weight: 500;
+}
+
+.prayer-modal__divider {
+  height: 1px;
+  background-color: #F4F0EE;
+  margin: 0 20px;
+}
+
+.prayer-modal__textarea {
+  width: 100%;
+  min-height: 120px;
+  background-color: transparent;
+  border: none;
+  padding: 16px 20px 20px;
+  font-size: 16px;
+  font-family: var(--font-sans);
+  color: #3E2C26;
+  resize: none;
+  outline: none;
+}
+
+.prayer-modal__textarea::placeholder {
+  color: #BDB5B1;
+}
+
+.prayer-modal__textarea:focus {
+  box-shadow: 0 0 0 2px rgba(210, 123, 99, 0.25);
+}
+
+.prayer-modal__input-icon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 20px;
+  height: 20px;
+  color: #D8A999;
+  pointer-events: none;
+}
+
+/* ===== Selection Groups ===== */
+.prayer-modal__group {
+  padding: 0 24px;
+  margin-bottom: 8px;
+}
+
+.prayer-modal__label {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #8D837F;
+  margin-bottom: 12px;
+}
+
+.prayer-modal__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* Chips */
+.prayer-modal__chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid #EAE4E1;
+  background-color: #FFFFFF;
+  color: #8D837F;
+  transition: all 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.prayer-modal__chip--active {
+  background-color: #D27B63;
+  color: #FFFFFF;
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(210, 123, 99, 0.3);
+}
+
+.prayer-modal__chip-icon {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prayer-modal__chip-icon svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+/* ===== Fixed Bottom Actions ===== */
+.prayer-modal__actions {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.prayer-modal__save {
+  width: 100%;
+  background-color: #D27B63;
+  color: #FFFFFF;
+  padding: 18px 0;
+  border-radius: 999px;
+  border: none;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(210, 123, 99, 0.4);
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.15s ease;
+}
+
+.prayer-modal__save:active {
+  transform: scale(0.97);
+}
+
+.prayer-modal__cancel {
+  background: transparent;
+  border: none;
+  color: #8D837F;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 4px 16px;
+  -webkit-tap-highlight-color: transparent;
+}
