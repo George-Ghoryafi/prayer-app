@@ -3,10 +3,14 @@ import './FocusCard.css'
 const BASE = import.meta.env.BASE_URL
 
 interface FocusCardProps {
+  completed: number
+  total: number
   onClick?: () => void
 }
 
-export default function FocusCard({ onClick }: FocusCardProps) {
+export default function FocusCard({ completed, total, onClick }: FocusCardProps) {
+  const pct = total > 0 ? Math.round((completed / total) * 100) : 0
+
   return (
     <section className="focus-card" onClick={onClick} style={{ cursor: onClick ? 'pointer' : undefined }}>
       <div className="focus-card__image-wrapper">
@@ -36,9 +40,9 @@ export default function FocusCard({ onClick }: FocusCardProps) {
 
         <div className="focus-card__progress">
           <div className="focus-card__progress-track">
-            <div className="focus-card__progress-fill" />
+            <div className="focus-card__progress-fill" style={{ width: `${pct}%` }} />
           </div>
-          <span className="focus-card__progress-text">2/6</span>
+          <span className="focus-card__progress-text">{completed}/{total}</span>
         </div>
       </div>
     </section>

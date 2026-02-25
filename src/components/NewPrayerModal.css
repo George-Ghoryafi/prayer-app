@@ -86,7 +86,7 @@
 
 /* ===== Text Input Area ===== */
 .prayer-modal__input-wrapper {
-  margin: 0 24px 32px;
+  margin: 8px 24px 32px;
   position: relative;
   background-color: #FCF9F8;
   border-radius: 16px;

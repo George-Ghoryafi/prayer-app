@@ -31,3 +31,23 @@
   color: #FFFFFF;
   font-weight: 600;
 }
+
+.segmented-control__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 9px;
+  font-size: 11px;
+  font-weight: 700;
+  margin-left: 6px;
+  background-color: rgba(210, 123, 99, 0.2);
+  color: #D27B63;
+}
+
+.segmented-control__badge--active {
+  background-color: rgba(255, 255, 255, 0.3);
+  color: #FFFFFF;
+}

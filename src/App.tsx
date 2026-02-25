@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Dashboard from './pages/Dashboard'
 import EntriesPage from './pages/EntriesPage'
 import PrayerDetail from './pages/PrayerDetail'
-import type { Prayer } from './lib/db'
+import { markPrayed, type Prayer } from './lib/db'
 
 export type EntryType = 'current' | 'longterm'
 
@@ -30,8 +30,14 @@ function App() {
     setPage('entries')
   }
 
+  const handleAnswered = async () => {
+    if (!activePrayer?.id) return
+    await markPrayed(activePrayer.id)
+    closeDetail()
+  }
+
   if (page === 'detail' && activePrayer) {
-    return <PrayerDetail prayer={activePrayer} onBack={closeDetail} />
+    return <PrayerDetail prayer={activePrayer} onBack={closeDetail} onAnswered={handleAnswered} />
   }
 
   if (page === 'entries') {

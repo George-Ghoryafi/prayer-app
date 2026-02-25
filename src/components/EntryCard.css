@@ -51,6 +51,16 @@
   color: #8D837F;
 }
 
+.entry-card__auto-badge {
+  font-size: 10px;
+  font-weight: 600;
+  color: #8CA081;
+  background-color: rgba(140, 160, 129, 0.12);
+  padding: 2px 8px;
+  border-radius: 10px;
+  letter-spacing: 0.3px;
+}
+
 /* Menu wrapper */
 .entry-card__menu-wrapper {
   position: relative;

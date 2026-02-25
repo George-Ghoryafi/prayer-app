@@ -5,7 +5,7 @@ import EntryCard from '../components/EntryCard'
 import FAB from '../components/FAB'
 import NewPrayerModal from '../components/NewPrayerModal'
 import {
-  getPrayers, markPrayed, deletePrayer, computeStreak,
+  getPrayers, markPrayed, deletePrayer, computeStreak, getIncompleteCounts,
   type Prayer, type FocusType
 } from '../lib/db'
 import './EntriesPage.css'
@@ -44,6 +44,7 @@ export default function EntriesPage({ type, onBack, onSelectPrayer }: EntriesPag
   const [loadedAt, setLoadedAt] = useState(Date.now)
   const [refreshKey, setRefreshKey] = useState(0)
   const [focus, setFocus] = useState<FocusType>('myself')
+  const [counts, setCounts] = useState<Record<FocusType, number>>({ myself: 0, others: 0, general: 0 })
 
   const timeframe = type === 'current' ? 'current' as const : 'longterm' as const
   const title = type === 'current' ? 'Current' : 'Long Term'
@@ -55,6 +56,9 @@ export default function EntriesPage({ type, onBack, onSelectPrayer }: EntriesPag
         setPrayers(results)
         setLoadedAt(Date.now())
       }
+    })
+    getIncompleteCounts(timeframe).then((c) => {
+      if (!cancelled) setCounts(c)
     })
     return () => { cancelled = true }
   }, [timeframe, focus, refreshKey])
@@ -82,7 +86,7 @@ export default function EntriesPage({ type, onBack, onSelectPrayer }: EntriesPag
           </button>
           <h1 className="entries-page__title">{title}</h1>
         </div>
-        <SegmentedControl value={focus} onChange={setFocus} />
+        <SegmentedControl value={focus} onChange={setFocus} counts={counts} />
       </div>
 
       <main className="entries-page__scroll">
@@ -106,6 +110,7 @@ export default function EntriesPage({ type, onBack, onSelectPrayer }: EntriesPag
                 streaks={streak}
                 prayedToday={prayedToday}
                 isRecent={isRecent}
+                autoAdded={prayer.source === 'plough-daily'}
                 onPray={handlePray}
                 onDelete={handleDelete}
                 onClick={() => onSelectPrayer(prayer)}

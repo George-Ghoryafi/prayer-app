@@ -9,13 +9,14 @@ interface EntryCardProps {
   streaks: number
   prayedToday: boolean
   isRecent?: boolean
+  autoAdded?: boolean
   onPray: (id: number) => void
   onDelete: (id: number) => void
   onClick?: () => void
 }
 
 export default function EntryCard({
-  id, title, body, date, streaks, prayedToday, isRecent, onPray, onDelete, onClick
+  id, title, body, date, streaks, prayedToday, isRecent, autoAdded, onPray, onDelete, onClick
 }: EntryCardProps) {
   const [menuOpen, setMenuOpen] = useState(false)
   const menuRef = useRef<HTMLDivElement>(null)
@@ -47,6 +48,7 @@ export default function EntryCard({
             </div>
           )}
           <span className="entry-card__date">{date}</span>
+          {autoAdded && <span className="entry-card__auto-badge">Auto</span>}
         </div>
 
         {/* Menu wrapper */}
