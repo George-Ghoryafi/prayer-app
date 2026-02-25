@@ -34,26 +34,6 @@ export default function JourneyCard({ onClick }: JourneyCardProps) {
         <p className="journey-card__body">
           Ongoing journeys and lifelong hopes. Keep your vision steady.
         </p>
-
-        <div className="journey-card__avatars">
-          <div className="journey-card__avatar">
-            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="32" height="32" rx="16" fill="#7FA8B8" />
-              <circle cx="16" cy="13" r="5" fill="#5A8FA3" />
-              <ellipse cx="16" cy="26" rx="8" ry="6" fill="#5A8FA3" />
-            </svg>
-          </div>
-          <div className="journey-card__avatar">
-            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="32" height="32" rx="16" fill="#8BB5C4" />
-              <circle cx="16" cy="13" r="5" fill="#6A9CB0" />
-              <ellipse cx="16" cy="26" rx="8" ry="6" fill="#6A9CB0" />
-            </svg>
-          </div>
-          <div className="journey-card__avatar journey-card__avatar--placeholder">
-            <span className="journey-card__avatar-text">+3</span>
-          </div>
-        </div>
       </div>
     </section>
   )

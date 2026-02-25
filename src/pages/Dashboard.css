@@ -18,5 +18,5 @@
 }
 
 .dashboard__scroll {
-  padding-bottom: calc(var(--nav-height) + 20px);
+  padding-bottom: 24px;
 }

@@ -22,7 +22,6 @@ function App() {
       <EntriesPage
         type={entryType}
         onBack={navigateToDashboard}
-        onHomeClick={navigateToDashboard}
       />
     )
   }

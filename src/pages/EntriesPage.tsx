@@ -2,17 +2,15 @@ import type { EntryType } from '../App'
 import SegmentedControl from '../components/SegmentedControl'
 import EntryCard from '../components/EntryCard'
 import FAB from '../components/FAB'
-import BottomNav from '../components/BottomNav'
 import { currentEntries, longtermEntries } from '../data/mockEntries'
 import './EntriesPage.css'
 
 interface EntriesPageProps {
   type: EntryType
   onBack: () => void
-  onHomeClick: () => void
 }
 
-export default function EntriesPage({ type, onBack, onHomeClick }: EntriesPageProps) {
+export default function EntriesPage({ type, onBack }: EntriesPageProps) {
   const entries = type === 'current' ? currentEntries : longtermEntries
   const title = type === 'current' ? 'Current' : 'Long Term'
 
@@ -44,7 +42,6 @@ export default function EntriesPage({ type, onBack, onHomeClick }: EntriesPagePr
       </main>
 
       <FAB />
-      <BottomNav variant="entries" onHomeClick={onHomeClick} />
     </div>
   )
 }
