@@ -1,5 +1,5 @@
 const DB_NAME = 'prayer-app'
-const DB_VERSION = 3
+const DB_VERSION = 4
 const STORE_NAME = 'prayers'
 
 export type FocusType = 'myself' | 'others' | 'general'
@@ -8,11 +8,12 @@ export interface Prayer {
   id?: number
   title: string
   body: string
+  bibleVerse?: string          // optional verse text, e.g. '"Be still..." — Psalm 46:10'
   timeframe: 'current' | 'longterm'
   focus: FocusType
   createdAt: number
-  lastPrayed: number | null   // timestamp of last "Prayed Today" tap
-  prayerStreak: number        // consecutive days prayed
+  lastPrayed: number | null
+  prayerStreak: number
 }
 
 /** Get the start-of-day (midnight) for a given timestamp in local time */

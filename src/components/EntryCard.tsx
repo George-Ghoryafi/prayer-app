@@ -11,10 +11,11 @@ interface EntryCardProps {
   isRecent?: boolean
   onPray: (id: number) => void
   onDelete: (id: number) => void
+  onClick?: () => void
 }
 
 export default function EntryCard({
-  id, title, body, date, streaks, prayedToday, isRecent, onPray, onDelete
+  id, title, body, date, streaks, prayedToday, isRecent, onPray, onDelete, onClick
 }: EntryCardProps) {
   const [menuOpen, setMenuOpen] = useState(false)
   const menuRef = useRef<HTMLDivElement>(null)
@@ -32,7 +33,7 @@ export default function EntryCard({
   }, [menuOpen])
 
   return (
-    <article className="entry-card">
+    <article className="entry-card" onClick={onClick} style={{ cursor: onClick ? 'pointer' : undefined }}>
       <div className="entry-card__header">
         <div className="entry-card__meta">
           {isRecent && (
@@ -49,7 +50,7 @@ export default function EntryCard({
         </div>
 
         {/* Menu wrapper */}
-        <div className="entry-card__menu-wrapper" ref={menuRef}>
+        <div className="entry-card__menu-wrapper" ref={menuRef} onClick={(e) => e.stopPropagation()}>
           <button
             className="entry-card__menu"
             type="button"

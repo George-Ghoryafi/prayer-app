@@ -10,6 +10,8 @@ interface NewPrayerModalProps {
 export default function NewPrayerModal({ onClose, onSaved }: NewPrayerModalProps) {
   const [title, setTitle] = useState('')
   const [body, setBody] = useState('')
+  const [bibleVerse, setBibleVerse] = useState('')
+  const [showVerse, setShowVerse] = useState(false)
   const [timeframe, setTimeframe] = useState<'current' | 'longterm'>('current')
   const [focus, setFocus] = useState<FocusType>('myself')
   const [saving, setSaving] = useState(false)
@@ -21,7 +23,8 @@ export default function NewPrayerModal({ onClose, onSaved }: NewPrayerModalProps
 
     setSaving(true)
     try {
-      await addPrayer({ title: trimmedTitle, body: trimmedBody, timeframe, focus })
+      const trimmedVerse = bibleVerse.trim() || undefined
+      await addPrayer({ title: trimmedTitle, body: trimmedBody, bibleVerse: trimmedVerse, timeframe, focus })
       onSaved?.()
       onClose()
     } catch (err) {
@@ -73,6 +76,40 @@ export default function NewPrayerModal({ onClose, onSaved }: NewPrayerModalProps
               <path d="M4 12h10" />
               <path d="M4 18h14" />
             </svg>
+          </div>
+
+          {/* Bible Verse (optional, collapsible) */}
+          <div className="prayer-modal__group">
+            <button
+              type="button"
+              className="prayer-modal__verse-toggle"
+              onClick={() => setShowVerse(!showVerse)}
+            >
+              <svg className="prayer-modal__verse-toggle-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 2a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6H6zm7 1.5L18.5 9H13V3.5zM8 13h8v1.5H8V13zm0 3h6v1.5H8V16z" />
+              </svg>
+              <span>Add Bible Verse</span>
+              <svg
+                className={`prayer-modal__verse-chevron ${showVerse ? 'prayer-modal__verse-chevron--open' : ''}`}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
+            {showVerse && (
+              <textarea
+                className="prayer-modal__verse-input"
+                placeholder={'"For I know the plans I have for you..." — Jeremiah 29:11'}
+                rows={3}
+                value={bibleVerse}
+                onChange={(e) => setBibleVerse(e.target.value)}
+              />
+            )}
           </div>
 
           {/* Timeframe */}

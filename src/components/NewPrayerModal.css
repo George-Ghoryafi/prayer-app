@@ -152,6 +152,65 @@
   pointer-events: none;
 }
 
+/* ===== Bible Verse Toggle ===== */
+.prayer-modal__verse-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: #8CA081;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.prayer-modal__verse-toggle-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.prayer-modal__verse-chevron {
+  width: 16px;
+  height: 16px;
+  margin-left: auto;
+  transition: transform 0.2s ease;
+}
+
+.prayer-modal__verse-chevron--open {
+  transform: rotate(180deg);
+}
+
+.prayer-modal__verse-input {
+  width: 100%;
+  min-height: 80px;
+  background-color: #FCF9F8;
+  border-radius: 12px;
+  border: 1px solid #EAE4E1;
+  padding: 14px 16px;
+  font-size: 14px;
+  font-style: italic;
+  font-family: var(--font-serif);
+  color: #3E2C26;
+  resize: none;
+  outline: none;
+  margin-top: 4px;
+}
+
+.prayer-modal__verse-input::placeholder {
+  color: #BDB5B1;
+}
+
+.prayer-modal__verse-input:focus {
+  border-color: #8CA081;
+  box-shadow: 0 0 0 2px rgba(140, 160, 129, 0.2);
+}
+
 /* ===== Selection Groups ===== */
 .prayer-modal__group {
   padding: 0 24px;

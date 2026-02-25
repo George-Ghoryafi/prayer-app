@@ -13,6 +13,7 @@ import './EntriesPage.css'
 interface EntriesPageProps {
   type: EntryType
   onBack: () => void
+  onSelectPrayer: (prayer: Prayer) => void
 }
 
 function formatRelativeDate(timestamp: number): string {
@@ -37,7 +38,7 @@ function startOfDay(ts: number): number {
   return d.getTime()
 }
 
-export default function EntriesPage({ type, onBack }: EntriesPageProps) {
+export default function EntriesPage({ type, onBack, onSelectPrayer }: EntriesPageProps) {
   const [showModal, setShowModal] = useState(false)
   const [prayers, setPrayers] = useState<Prayer[]>([])
   const [loadedAt, setLoadedAt] = useState(Date.now)
@@ -107,6 +108,7 @@ export default function EntriesPage({ type, onBack }: EntriesPageProps) {
                 isRecent={isRecent}
                 onPray={handlePray}
                 onDelete={handleDelete}
+                onClick={() => onSelectPrayer(prayer)}
               />
             )
           })

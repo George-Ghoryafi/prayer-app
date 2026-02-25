@@ -1,0 +1,196 @@
+/* ===== Page Container ===== */
+.prayer-detail {
+  height: 100dvh;
+  background-color: #F9F5F2;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ===== Top Navigation ===== */
+.prayer-detail__nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px 8px;
+  flex-shrink: 0;
+}
+
+.prayer-detail__back,
+.prayer-detail__edit {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  -webkit-tap-highlight-color: transparent;
+  color: #41342F;
+}
+
+.prayer-detail__back svg {
+  width: 24px;
+  height: 24px;
+}
+
+.prayer-detail__edit svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ===== Reading Area ===== */
+.prayer-detail__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 32px 0;
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* Quote motif */
+.prayer-detail__quote-icon {
+  color: #E4DCD8;
+  font-family: var(--font-serif);
+  font-size: 36px;
+  line-height: 1;
+  margin-bottom: 16px;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+/* Page frame — the measured area that determines page size */
+.prayer-detail__page-frame {
+  flex: 1;
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  touch-action: none;
+}
+
+/* Body text — single page, no scroll */
+.prayer-detail__body {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 22px;
+  line-height: 2.0;
+  text-align: center;
+  color: #41342F;
+  animation: page-fade-in 0.3s ease;
+}
+
+/* Verse page layout */
+.prayer-detail__verse-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  animation: page-fade-in 0.3s ease;
+}
+
+.prayer-detail__verse-ref {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: #8CA081;
+  letter-spacing: 0.5px;
+}
+
+@keyframes page-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Page indicators */
+.prayer-detail__dots {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 0 4px;
+  flex-shrink: 0;
+}
+
+.prayer-detail__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #DDD6D2;
+  transition: all 0.25s ease;
+}
+
+.prayer-detail__dot--active {
+  width: 8px;
+  height: 8px;
+  background-color: #8CA081;
+}
+
+/* ===== Sticky Bottom Action Area ===== */
+.prayer-detail__actions {
+  padding: 12px 24px;
+  padding-bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* Leaf motif */
+.prayer-detail__leaf {
+  width: 16px;
+  height: 16px;
+  color: #B5C4AA;
+  margin-bottom: 16px;
+}
+
+/* Mark as Answered button */
+.prayer-detail__answered-btn {
+  width: 100%;
+  height: 56px;
+  background-color: #8CA081;
+  border-radius: 999px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(140, 160, 129, 0.4);
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.15s ease;
+}
+
+.prayer-detail__answered-btn:active {
+  transform: scale(0.97);
+}
+
+.prayer-detail__answered-btn--done {
+  background-color: #6B7959;
+  box-shadow: none;
+}
+
+.prayer-detail__check-icon {
+  width: 20px;
+  height: 20px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prayer-detail__check-icon svg {
+  width: 12px;
+  height: 12px;
+  color: #FFFFFF;
+}
+
+.prayer-detail__answered-text {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 500;
+  color: #FFFFFF;
+}
