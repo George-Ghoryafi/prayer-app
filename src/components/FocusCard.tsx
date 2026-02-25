@@ -29,7 +29,7 @@ export default function FocusCard({ onClick }: FocusCardProps) {
           <span className="focus-card__tag-text">Daily Focus</span>
         </div>
 
-        <h2 className="focus-card__title">Current Time</h2>
+        <h2 className="focus-card__title">Daily Prayers</h2>
         <p className="focus-card__body">
           Pressing needs and daily focus. Center your thoughts on what matters today.
         </p>
