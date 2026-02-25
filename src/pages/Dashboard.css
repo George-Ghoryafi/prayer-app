@@ -1,6 +1,20 @@
 .dashboard {
   min-height: 100dvh;
   position: relative;
+  background: linear-gradient(180deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+  background-attachment: fixed;
+}
+
+/* Overscroll color extension (top) */
+.dashboard::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 50vh;
+  z-index: -1;
+  bottom: 100%;
+  background-color: var(--bg-gradient-start);
 }
 
 .dashboard__scroll {

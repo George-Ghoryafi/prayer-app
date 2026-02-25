@@ -50,3 +50,17 @@
 .bottom-nav__tab--inactive span {
   color: var(--nav-inactive);
 }
+
+/* Entries page variant */
+.bottom-nav--entries {
+  background-color: #FFFFFF;
+  border-top: 1px solid #F4F0EE;
+}
+
+.bottom-nav--entries .bottom-nav__tab--inactive svg {
+  color: #C1B8B4;
+}
+
+.bottom-nav--entries .bottom-nav__tab--inactive span {
+  color: #C1B8B4;
+}

@@ -1,10 +1,15 @@
 import './BottomNav.css'
 
-export default function BottomNav() {
+interface BottomNavProps {
+  variant?: 'dashboard' | 'entries'
+  onHomeClick?: () => void
+}
+
+export default function BottomNav({ variant = 'dashboard', onHomeClick }: BottomNavProps) {
   return (
-    <nav className="bottom-nav">
+    <nav className={`bottom-nav ${variant === 'entries' ? 'bottom-nav--entries' : ''}`}>
       {/* HOME - Active */}
-      <button className="bottom-nav__tab bottom-nav__tab--active" type="button">
+      <button className="bottom-nav__tab bottom-nav__tab--active" type="button" onClick={onHomeClick}>
         <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path d="M3 10.5L12 3l9 7.5V21a1 1 0 01-1 1h-5v-6h-6v6H4a1 1 0 01-1-1V10.5z" />
         </svg>

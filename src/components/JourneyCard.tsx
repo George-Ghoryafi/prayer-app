@@ -2,9 +2,13 @@ import './JourneyCard.css'
 
 const BASE = import.meta.env.BASE_URL
 
-export default function JourneyCard() {
+interface JourneyCardProps {
+  onClick?: () => void
+}
+
+export default function JourneyCard({ onClick }: JourneyCardProps) {
   return (
-    <section className="journey-card">
+    <section className="journey-card" onClick={onClick} style={{ cursor: onClick ? 'pointer' : undefined }}>
       <div className="journey-card__image-wrapper">
         <img
           className="journey-card__image"
@@ -32,7 +36,6 @@ export default function JourneyCard() {
         </p>
 
         <div className="journey-card__avatars">
-          {/* Avatar 1 */}
           <div className="journey-card__avatar">
             <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect width="32" height="32" rx="16" fill="#7FA8B8" />
@@ -40,7 +43,6 @@ export default function JourneyCard() {
               <ellipse cx="16" cy="26" rx="8" ry="6" fill="#5A8FA3" />
             </svg>
           </div>
-          {/* Avatar 2 */}
           <div className="journey-card__avatar">
             <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect width="32" height="32" rx="16" fill="#8BB5C4" />
@@ -48,7 +50,6 @@ export default function JourneyCard() {
               <ellipse cx="16" cy="26" rx="8" ry="6" fill="#6A9CB0" />
             </svg>
           </div>
-          {/* Placeholder +3 */}
           <div className="journey-card__avatar journey-card__avatar--placeholder">
             <span className="journey-card__avatar-text">+3</span>
           </div>

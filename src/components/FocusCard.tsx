@@ -2,9 +2,13 @@ import './FocusCard.css'
 
 const BASE = import.meta.env.BASE_URL
 
-export default function FocusCard() {
+interface FocusCardProps {
+  onClick?: () => void
+}
+
+export default function FocusCard({ onClick }: FocusCardProps) {
   return (
-    <section className="focus-card">
+    <section className="focus-card" onClick={onClick} style={{ cursor: onClick ? 'pointer' : undefined }}>
       <div className="focus-card__image-wrapper">
         <img
           className="focus-card__image"

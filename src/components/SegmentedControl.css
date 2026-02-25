@@ -1,0 +1,33 @@
+.segmented-control {
+  padding: 0 20px 20px;
+  background-color: #FCF5F2;
+}
+
+.segmented-control__track {
+  background-color: #F6EBE5;
+  border-radius: 30px;
+  padding: 4px;
+  display: flex;
+}
+
+.segmented-control__tab {
+  flex: 1;
+  border: none;
+  background: transparent;
+  border-radius: 26px;
+  padding: 10px 0;
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: #A69B96;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.segmented-control__tab--active {
+  background-color: #889774;
+  color: #FFFFFF;
+  font-weight: 600;
+}
