@@ -1,0 +1,53 @@
+.quote-card {
+  margin: 0 var(--screen-padding) 80px;
+  border-radius: 24px;
+  background-color: var(--card-bg);
+  padding: 24px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.quote-card__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.quote-card__icon-symbol {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--accent-coral);
+  line-height: 1;
+  margin-top: 2px;
+}
+
+.quote-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.quote-card__text {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--text-primary);
+}
+
+.quote-card__reference {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}

@@ -1,0 +1,29 @@
+.fab {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  z-index: 10;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: var(--accent-coral);
+  box-shadow: 0px 8px 24px rgba(210, 123, 99, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.2s ease;
+}
+
+.fab:active {
+  transform: scale(0.92);
+}
+
+.fab__icon {
+  font-size: 32px;
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1;
+}
